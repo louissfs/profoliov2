@@ -6,7 +6,7 @@ const HERO_VIDEO = "/hero.mp4"; // video file in the /public folder
 const PIXEL_SIZE = 160; // hero video pixel width: smaller = bigger pixels
 const EMAIL = "affolouis0@gmail.com";
 const NAV = ["Home", "Work", "About", "News", "Contact"];
-onst PROJECTS = [
+const PROJECTS = [
   { title: "Project One", img: "/image1.png", url: "https://www.batumigeorgia.com", role: "Developer & Designer", stack: "React · CSS", year: "2026", color: "#2f6f4e", rgb: "255,255,255", fg: "#000" },
   { title: "Project Two", img: "/seavik.png", url: "https://www.seavik.com/", role: "Developer & Designer", stack: "React · CSS", year: "2026", color: "#2b2bd9", rgb: "255,255,255", fg: "#000" },
   { title: "Project Three", img: "/rifraf.png", url: "https://rifraf.vercel.app/", role: "Developer & Designer", stack: "React · CSS", year: "2026", color: "#e0a21b", rgb: "255,255,255", fg: "#000" },
