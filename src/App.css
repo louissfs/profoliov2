@@ -1,0 +1,9 @@
+/* Cleaned: the default Create React App styles (.App, .App-logo, .App-header,
+   .App-link, App-logo-spin) were duplicated and unused by this site, so they're removed. */
+
+.hero .tint {
+  position: absolute;
+  inset: 0;
+  background: #e0170a;
+  mix-blend-mode: multiply;
+}
