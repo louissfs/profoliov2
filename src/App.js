@@ -5,9 +5,8 @@ const NAME = "ARTRIXSTUDIOS";
 const HERO_VIDEO = "/hero.mp4"; // video file in the /public folder
 const PIXEL_SIZE = 160; // hero video pixel width: smaller = bigger pixels
 const EMAIL = "affolouis0@gmail.com";
-const GAME_DELAY = 12000; // ms to wait after loading before the game popup shows (12 seconds)
 const NAV = ["Home", "Work", "About", "News", "Contact"];
-const PROJECTS = [
+onst PROJECTS = [
   { title: "Project One", img: "/image1.png", url: "https://www.batumigeorgia.com", role: "Developer & Designer", stack: "React · CSS", year: "2026", color: "#2f6f4e", rgb: "255,255,255", fg: "#000" },
   { title: "Project Two", img: "/seavik.png", url: "https://www.seavik.com/", role: "Developer & Designer", stack: "React · CSS", year: "2026", color: "#2b2bd9", rgb: "255,255,255", fg: "#000" },
   { title: "Project Three", img: "/rifraf.png", url: "https://rifraf.vercel.app/", role: "Developer & Designer", stack: "React · CSS", year: "2026", color: "#e0a21b", rgb: "255,255,255", fg: "#000" },
@@ -426,18 +425,6 @@ function Home() {
   useEffect(() => {
     if (n === 100) setTimeout(() => setDone(true), 400);
   }, [n]);
-  // on laptop-size screens (1024px and wider) the game popup opens by itself a few seconds after loading
-  const gameSeen = useRef(false);
-  useEffect(() => {
-    if (game) gameSeen.current = true;
-  }, [game]);
-  useEffect(() => {
-    if (!done || !window.matchMedia("(min-width: 1024px)").matches) return;
-    const id = setTimeout(() => {
-      if (!gameSeen.current) setGame(true);
-    }, GAME_DELAY);
-    return () => clearTimeout(id);
-  }, [done]);
   useEffect(() => {
     const on = () => setY(window.scrollY);
     window.addEventListener("scroll", on, { passive: true });
@@ -484,7 +471,7 @@ function Home() {
       {/* HERO: grayscale pixel video with a full-colour blob; the title letters drift around like bubbles */}
       <section className="hero" id="home" style={{ transform: `scale(${1 - p * 0.04})` }}>
         {HERO_VIDEO ? <PixelVideo src={HERO_VIDEO} size={PIXEL_SIZE} /> : <div className="bg" />}
-        <div className="reg" title="?" onClick={() => setGame(true)}>R</div>
+        <div className="reg">R</div>
         <div
           className={`big ${done ? "go" : ""}`}
           style={{
@@ -561,7 +548,6 @@ function Home() {
         </div>
         <div className="bar">
           <span>© {new Date().getFullYear()} {NAME}</span>
-          <button className="playbtn" onClick={() => setGame(true)}>▶ PRESS START</button>
         </div>
       </footer>
       {game && <Game onClose={() => setGame(false)} />}
